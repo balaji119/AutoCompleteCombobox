@@ -1,0 +1,14 @@
+*.ipch
+*.suo
+*.pdb
+*.sdf
+*.vcxproj.user
+*.user
+**/Debug/
+**/Release
+**/Intermediate
+**/Executables
+*.opensdf
+
+*.exe
+*.csproject.user

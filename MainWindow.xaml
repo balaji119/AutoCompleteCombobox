@@ -1,0 +1,28 @@
+﻿<Window x:Class="AutoSearchCombobox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="150" Width="350" DataContext="{StaticResource MainWindowVM}">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label HorizontalAlignment="Right" VerticalAlignment="Center">Ordinary:</Label>
+        <Label HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,20" Grid.Row="1">Auto Search:</Label>
+        <ComboBox Grid.Column="1" Height="20" Width="200" HorizontalAlignment="Left" Margin="5" ItemsSource="{Binding Names}" SelectedItem="{Binding CB1SelectedItem}" IsEditable="True"></ComboBox>
+        <ComboBox Name="AutoCombobox" Grid.Column="1" Grid.Row="1" Height="20" Width="200" HorizontalAlignment="Left" Margin="5,0,0,20" ItemsSource="{Binding Names}" SelectedItem="{Binding CB2SelectedItem}" IsEditable="True">
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel IsVirtualizing="True" IsItemsHost="True"/>
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+            </ComboBox>
+    </Grid>
+        <TextBlock DockPanel.Dock="Bottom" Height="20" Background="#EDECEC" Foreground="DarkGray" Text="{Binding TaskPaneText}"></TextBlock>
+    </DockPanel>
+</Window>
